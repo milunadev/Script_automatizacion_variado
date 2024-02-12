@@ -10,7 +10,7 @@ server {
     server_name $dominio www.$dominio;
     # Redirige HTTP a HTTPS
     return 301 https://\$host\$request_uri;
-}
+}.
 server {
     listen 443 ssl;
     server_name $dominio;
@@ -31,19 +31,19 @@ EOF
 
 if [ $version == 5 ]
 then
-    echo "$dominio-sami5.conf"
     dominio_publico=$dominio-sami5.conf
-    echo "$CONFIG" > $dominio-sami5.conf
+    cd /etc/nginx/sites-available/ && echo "$CONFIG" > $dominio-sami5.conf
+    echo " Creado el archivo $dominio-sami5.conf"
 elif [ $version == 3 ]
 then
-    echo "$dominio.conf"
     dominio_publico=$dominio.conf
-    echo "$CONFIG" > $dominio.conf
+    cd /etc/nginx/sites-available/ && echo "$CONFIG" > $dominio.conf
+    echo "Creado el archivo $dominio.conf"
 fi
 
-echo $dominio_publico
-
+echo "Creando la referencia..."
 ln -s /etc/nginx/sites-available/$dominio_publico ../sites-enabled/
+echo "Creada la referencia con exito"
 
 sudo nginx -t 
 sleep 60
