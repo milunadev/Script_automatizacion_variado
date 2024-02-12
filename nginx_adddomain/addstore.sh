@@ -45,7 +45,7 @@ echo "Creando la referencia..."
 ln -s /etc/nginx/sites-available/$dominio_publico /etc/nginx/sites-enabled/
 echo "Creada la referencia con exito"
 
-sudo nginx -t 
+nginx -t 
 sleep 60
 
-sudo certbot --nginx -d $dominio -d www.$dominio
+certbot --nginx -d $dominio -d www.$dominio
