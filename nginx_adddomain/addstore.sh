@@ -10,7 +10,7 @@ server {
     server_name $dominio www.$dominio;
     # Redirige HTTP a HTTPS
     return 301 https://\$host\$request_uri;
-}.
+}
 server {
     listen 443 ssl;
     server_name $dominio;
