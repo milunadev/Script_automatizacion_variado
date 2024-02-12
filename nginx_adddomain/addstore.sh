@@ -42,7 +42,7 @@ then
 fi
 
 echo "Creando la referencia..."
-ln -s /etc/nginx/sites-available/$dominio_publico ../sites-enabled/
+ln -s /etc/nginx/sites-available/$dominio_publico /etc/nginx/sites-enabled/
 echo "Creada la referencia con exito"
 
 sudo nginx -t 
