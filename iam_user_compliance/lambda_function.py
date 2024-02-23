@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 iam = boto3.client('iam')
 general_user_data = []
-webhook_url = 'https://hooks.slack.com/services/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'
+webhook_url = ''  ## USE SLACK U OTHER WEBHOOK URL to send message
 
 def generate_last_user_activity(username, user_arn):
     response = iam.generate_service_last_accessed_details(

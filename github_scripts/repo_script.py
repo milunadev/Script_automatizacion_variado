@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ORG = "Samiperu"
+ORG = os.getenv("ORG")
 github_token = os.getenv("GITHUB_TOKEN")
 headers = {
     'Accept': 'application/vnd.github+json',
